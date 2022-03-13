@@ -1,0 +1,75 @@
+#include "bits/stdc++.h"
+
+using namespace std;
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        
+        string str1, str2;
+        cin>>str1>>str2;
+        
+        
+    // -----------    CHECK WHICH LENGTH IS MORE  -------------
+    
+     if(str1.length() > str2.length())
+        swap(str1 , str2);
+        
+        int n1 = str1.length();
+        int n2 = str2.length();
+        
+        
+    // --------------- REVERSE FUNCTION--------------------------
+    
+     reverse(str1.begin() , str1.end());
+     reverse(str2.begin() , str2.end());
+     
+    //  ---------------MAIN CODE(TO PERFORM ADDITION)---------------
+     
+     int carry;
+     string result;
+     
+      for(int i=0; i<n1; i++){
+          
+        //   -----  CHAR  TO INTEGER-----
+          int sum = ((str1[i] - '0') + (str2[i] - '0')+carry);
+          
+        //   ---------INTEGER TO STRING----- 
+          result.push_back(sum%10 + '0');
+          
+          int carry = sum/10;
+          
+          }
+          
+    // -------------  FOR STRING 2-----------------------
+    
+         for(int i=0; i<n2; i++){
+          
+        //   -----  CHAR  TO INTEGER-----
+          int sum =  ((str2[i] - '0')+carry);
+          
+        //   ---------INTEGER TO STRING----- 
+          result.push_back(sum%10 + '0');
+          
+          int carry = sum/10;
+          
+          }
+          
+          
+          
+        //   -------------IF IN ANY CASE CARRY GOT REMAINED THEN-------------
+        
+          if(carry){
+              result.push_back(carry+'0');
+          }
+          
+          reverse(result.begin() , result.end());
+          cout<<result<<endl;
+    
+    }
+
+    return 0;
+}
+
