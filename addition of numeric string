@@ -46,6 +46,7 @@ int main()
     // -------------  FOR STRING 2-----------------------
     
          for(int i=0; i<n2; i++){
+
           
         //   -----  CHAR  TO INTEGER-----
           int sum =  ((str2[i] - '0')+carry);
@@ -66,6 +67,7 @@ int main()
           }
           
           reverse(result.begin() , result.end());
+
           cout<<result<<endl;
     
     }
